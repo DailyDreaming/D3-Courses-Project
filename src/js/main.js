@@ -108,7 +108,7 @@ var menu = d3.select("#menu")
         .attr("transform", "translate(" + m_margin.left + "," + m_margin.top + ")");
 
 /* Import and process foods data */
-d3.json("src/json/foods.json", function(error, m_data) {
+d3.json("src/json/classes.json", function(error, m_data) {
     if (error) throw error;
 
     /* Iterate over data */
