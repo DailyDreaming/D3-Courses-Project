@@ -108,7 +108,7 @@ var menu = d3.select("#menu")
         .attr("transform", "translate(" + m_margin.left + "," + m_margin.top + ")");
 
 /* Import and process foods data */
-d3.json("src/json/classes.json", function(error, m_data) {
+d3.json("src/json/foods.json", function(error, m_data) {
     if (error) throw error;
 
     /* Iterate over data */
@@ -154,10 +154,10 @@ d3.json("src/json/classes.json", function(error, m_data) {
     p_start(false);
 
     /* Initialize default recommendation */
-    handle_form_inputs();
+   // handle_form_inputs();
 
     /* Initialize default table values */
-    update_plate_totals();
+   // update_plate_totals();
 
     /* Initialize tooltip */
     var m_tip = d3.tip()
@@ -464,84 +464,5 @@ d3.select("#clear_plate").on("click", function() {
     update_plate_totals();
 });
 
-/* Handle input changes */
-d3.selectAll("input, select").on("change", handle_form_inputs);
 
-/* Handle form inputs */
-function handle_form_inputs() {
-    /* Gather input values */
-    age = parseInt(d3.select("#age").node().value);
-    weight = parseInt(d3.select("#weight").node().value);
-    height = parseInt(d3.select("#height").node().value);
-    sex = d3.select("#sex").node().value;
-    activity_level = d3.select("#activity_level").node().value;
 
-    /* Validate input values */
-    if (!isNaN(age)
-        && !isNaN(weight)
-        && !isNaN(height)
-        && (sex === "m"
-            || sex === "f")
-        && (activity_level === "sedentary"
-            || activity_level === "lightly_active"
-            || activity_level === "moderately_active"
-            || activity_level === "very_active"
-            || activity_level === "extra_active")) {
-        /* Update recommendation */
-        update_recommendation()
-    }
-}
-
-/* Update plate totals */
-function update_plate_totals() {
-    /* Initialize nutrient totals */
-    var calories = 0,
-        cholesterol = 0,
-        sodium = 0,
-        fat = 0;
-
-    /* Sum nutrient totals */
-    for (var i = 0; i < p_data.length; i++) {
-        calories += p_data[i].calories;
-        cholesterol += p_data[i].cholesterol;
-        sodium += p_data[i].sodium;
-        fat += p_data[i].fat;
-    }
-
-    /* Update table values */
-    d3.select("#your_plate_calories").text(format_number(calories)).classed("your_plate_warning", calories > bmi / 4);
-    d3.select("#your_plate_cholesterol").text(format_number(cholesterol)).classed("your_plate_warning", cholesterol > 250);
-    d3.select("#your_plate_sodium").text(format_number(sodium)).classed("your_plate_warning", sodium > 575);
-    d3.select("#your_plate_fat").text(format_number(fat)).classed("your_plate_warning", fat > bmi * 0.30 / 16);
-}
-
-/**
- * Update recommendation
- * Based on the Harris-Benedict equation
- * https://en.wikipedia.org/wiki/Harris%E2%80%93Benedict_equation
- */
-function update_recommendation() {
-    if (sex === "m") {
-        bmr = 66 + (6.23 * weight) + (12.7 * height) - (6.8 * age);
-    } else if (sex === "f") {
-        bmr = 655 + (4.35 * weight) + (4.7 * height) - (4.7 * age);
-    }
-
-    if (activity_level === "sedentary") {
-        bmi = Math.floor(bmr * 1.2);
-    } else if (activity_level === "lightly_active") {
-        bmi = Math.floor(bmr * 1.375);
-    } else if (activity_level === "moderately_active") {
-        bmi = Math.floor(bmr * 1.55);
-    } else if (activity_level === "very_active") {
-        bmi = Math.floor(bmr * 1.725);
-    } else if (activity_level === "extra_active") {
-        bmi = Math.floor(bmr * 1.9);
-    }
-
-    /* Update table values */
-    d3.select("#recommendation_calories").text(format_number(bmi / 4));
-    d3.select("#recommendation_cholesterol").text(format_number(250));
-    d3.select("#recommendation_sodium").text(format_number(575));
-    d3.select("#recommendation_fat").text(format_number(bmi * 0.30 / 16));
-}
