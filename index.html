@@ -8,6 +8,83 @@
         <link href="src/css/lib/bootstrap.min.css" rel="stylesheet">
         <link href="src/css/lib/d3.tip.css" rel="stylesheet">
         <link href="src/css/main.css" rel="stylesheet">
+
+        <style>
+        h1
+        {
+            text-align:center;
+        }
+        .lessons
+        {
+        background-color: #e6e7e8;
+        width: 70%;
+        margin: 0 auto;
+        text-align: center;
+        padding-bottom:50px;
+        }
+
+        ul
+        {
+            margin:0 auto;
+            padding: 0;
+        }
+        li
+        {
+          margin:10px;
+          display: inline-block;
+          list-style-type: none;
+          width:100px;
+          height:90px;
+          background-color: #fff;
+          color:#000;
+          -o-transition: all .2s; /* For Safari 3.1 to 6.0 */
+          -ms-transition: all .2s; /* For Safari 3.1 to 6.0 */
+          -webkit-transition: all .2s; /* For Safari 3.1 to 6.0 */
+          transition: all .2s;
+        }
+
+        /* The course description*/
+        li p
+        {
+        font-size:50%;
+        font-weight: 40;
+        }
+
+        li
+        {
+        color: #e6e7e8;
+}
+
+li:hover {
+color: black;
+}
+
+/* Intro Classes */
+.lessons h1
+{
+padding-top: 10%;
+font-size:70%;
+}
+
+/* Intro Classes */
+.lessons h2
+{
+padding-top: 10%;
+font-size:80%;
+}
+
+#dialog-window {
+  width: 200px;
+  border: 1px black solid;
+}
+
+#scrollable-content {
+  height: 600px;
+  overflow: auto;
+  background-color: blue;
+}
+</style>
+
     </head>
 
     <body>
@@ -25,7 +102,165 @@
                     <button class="btn btn-lg btn-link" id="clear_plate" type="button">Clear Plate</button>
                 </div>
             </div>
-    
+
+ </div>
+                <div id="dialog-window">
+                  <div id="scrollable-content">
+
+                    <div class="lessons" id="intro">
+                      <h1>Intro Classes</h1>
+                      <ul>
+                        <a href=""><li id="cmps_12_a">
+                          <h2>CMPS 12A/L</h2>
+                          <p>Intro to Prog. (Accelerated)</p>
+                        </li></a>
+                        <a href=""><li id="cmps_5">
+                          <h2>CMPS 5J</h2>
+                          <p>Intro to Prog: Java</p>
+                        </li></a>
+                        <a href=""><li id="cmps_11">
+                          <h2>CMPS 11</h2>
+                          <p>Intermediate Programming</p>
+                        </li></a>
+                        <a href=""><li id="cmps_13_l">
+                          <h2>CMPS 13/L</h2>
+                          <p>Computer Systems and C Programming</p>
+                        </li></a>
+                        <a href=""><li id="cmps_12_b">
+                          <h2>CMPS 12B/M</h2>
+                          <p>Data Structures</p>
+                        </li></a>
+                        <a href=""><li id="cmps_12_h">
+                          <h2>CMPS 13H/L</h2>
+                          <p>Intro to Prog. & Data Structures</p>
+                        </li></a>
+                      </ul>
+                    </div> 
+
+                    <div class="lessons">
+                      <h1>Physical Science</h1>
+                      <ul>
+                      <a href=""><li id="phys_5_a">
+                        <h2>PHYS 5A/L or 6A/L</h2>
+                        <p>Intro to Physics 1 Mechanics</p>
+                      </li></a>
+                      <a href=""><li id="phys_5_b">
+                        <h2>PHYS 5B/M or 6B/M</h2>
+                        <p>Waves & Optics</p>
+                      </li></a>
+                      <a href=""><li id="phys_5_c">
+                        <h2>PHYS 5C/N or 6C/N</h2>
+                        <p>Electricity & Magnetism</p>
+                      </li></a>
+                      <a href=""><li id="chem_1_a">
+                        <h2>CHEM 1A</h2>
+                        <p>General Chemistry</p>
+                      </li></a>
+                      <a href=""><li id="chem_1_b">
+                        <h2>CHEM 1B/1M</h2>
+                        <p>General Chemistry</p>
+                      </li></a>
+                      <a href=""><li id="chem_1_c">
+                        <h2>CHEM 1C/N</h2>
+                        <p>General Chemistry</p>
+                      </li></a>
+                    </ul>
+                  </div> 
+
+                  <div class="lessons">
+                    <h1>Math</h1>
+                    <ul>
+                      <a href=""><li id="math_19_a">
+                        <h2>MATH 19A or 20A</h2>
+                        <p>Calculus</p>
+                      </li></a>
+                      <a href=""><li id="math_19_b">
+                        <h2>MATH 19B or 20B</h2>
+                        <p>Calculus</p>
+                      </li></a>
+                      <a href=""><li id="math_23_a">
+                        <h2>MATH 23A</h2>
+                        <p>Multivariable Calculus</p>
+                      </li></a>
+                      <a href=""><li id="ams_10">
+                        <h2>AMS 10</h2>
+                        <p>Engr Math Methods 1</p>
+                      </li></a>
+                      <a href=""><li id="math_21">
+                        <h2>MATH 21</h2>
+                        <p>Linear Algebra</p>
+                      </li></a>
+                    </ul>
+                  </div> 
+
+                  <div class="lessons">
+                    <h1>Computer Engineering</h1>
+                    <ul>
+                      <a href=""><li>
+                        <h2>CMPE 16</h2>
+                        <p>Discrete Math</p>
+                      </li></a>
+                      <a href=""><li>
+                        <h2>CMPE 12/L</h2>
+                        <p>Computer Systems & Assembly Language</p>
+                      </li></a>
+                      <a href=""><li>
+                        <h2>CMPE 110</h2>
+                        <p>Computer Architecture</p>
+                      </li></a>
+                    </ul>
+                  </div> 
+
+                  <div class="lessons">
+                    <h1>Computer Science</h1>
+                    <ul>
+                      <a href=""><li>
+                        <h2>CMPS 101</h2>
+                        <p>Abstract Data Types</p>
+                      </li></a>
+                      <a href=""><li>
+                        <h2>CMPS 104A</h2>
+                        <p>Compiler Design 1</p>
+                      </li></a>
+                      <a href=""><li>
+                        <h2>CMPS 111</h2>
+                        <p>Operating Systems</p>
+                      </li></a>
+                      <a href=""><li>
+                        <h2>CMPS 102</h2>
+                        <p>Analysis of Algorithms</p>
+                      </li></a>
+                      <a href=""><li>
+                        <h2>CMPS 112</h2>
+                        <p>Comparative Prog. Languages</p>
+                      </li></a>
+                      <a href=""><li>
+                        <h2>CMPS 130</h2>
+                        <p>Computational Models</p>
+                      </li></a>
+                    </ul>
+                  </div> 
+
+                  <div class="lessons">
+                    <h1>Electives</h1>
+                    <ul>
+                      <a href=""><li>
+                        <h2>Elective 1</h2>
+                      </li></a>
+                      <a href=""><li>
+                        <h2>Elective 2</h2>
+                      </li></a>
+                      <a href=""><li>
+                        <h2>Elective 3</h2>
+                      </li></a>
+                      <a href=""><li>
+                        <h2>Elective 4</h2>
+                      </li></a>
+                    </ul>
+                  </div> 
+
+                </div>
+              </div>
              
 
             <div id="about">
