@@ -92,7 +92,9 @@ var m_margin = {top: 0, right: 0, bottom: 0, left: 0},
     m_width  = 840 - m_margin.left - m_margin.right,
     m_height = 600 - m_margin.top - m_margin.bottom,
     m_radius = 26,
-    m_padding = 48;
+    m_padding = 48,
+    m_count = 0,   //new
+    m_xdata = [];  //new - maybe not needed
 
 /* Initialize plate settings */
 var p_margin = {top: 0, right: 0, bottom: 0, left: 0},
@@ -447,6 +449,105 @@ function p_start(removal) {
     }
 
     p_force.start();
+}
+function p_start(removal) {
+    /* Update node */
+    p_node = p_node.data(p_data);
+
+    /* Remove old circles and images */
+    p_node.selectAll(".p-" + p_count).remove();
+
+    /* Remove old nodes */
+    p_node.exit().remove();
+
+    /* Increment count */
+    p_count++;
+
+    /* Create node */
+    p_node
+        .enter()
+        .append("g");
+
+    /* Create circle */
+    p_circle = p_node
+        .data(p_data)
+        .append("circle")
+            .attr("class", "circle p-" + p_count)
+            .attr("r", function() { return p_radius; })
+            .style("fill", function(d) { return d.color; })
+            .on("mouseover", p_tip.show)
+            .on("mouseleave", p_tip.hide)
+            .on("click", function(d) {
+                p_data.splice(d.index, 1);
+
+                p_start(true);
+            });
+
+    /* Create image */
+    p_img = p_node
+        .data(p_data)
+        .append("image")
+            .attr("class", "image p-" + p_count)
+            .attr("width", "52")
+            .attr("height", "52")
+            .attr("xlink:href", function(d) { return "src/img/" + d.type + "/" + d.img + ".png"; });
+
+    /* Hide tooltip */
+    if (removal) {
+        p_tip.hide();
+    }
+
+    p_force.start();
+}
+
+function m_start(removal) {
+    /* Update node */
+    m_node = m_node.data(m_data);
+
+    /* Remove old circles and images */
+    m_node.selectAll(".p-" + m_count).remove();
+
+    /* Remove old nodes */
+    m_node.exit().remove();
+
+    /* Increment count */
+    m_count++;
+
+    /* Create node */
+    m_node
+        .enter()
+        .append("g");
+
+    /* Create circle */
+    m_circle = m_node
+        .data(m_data)
+        .append("circle")
+            .attr("class", "circle m-" + m_count)
+            .attr("r", function() { return m_radius; })
+            .style("fill", function(d) { return d.color; })
+            .on("mouseover", m_tip.show)
+            .on("mouseleave", m_tip.hide)
+            .on("click", function(d) {
+                m_data.splice(d.index, 1);
+
+                m_start(true);
+            });
+
+    /* Create image */
+    m_img = m_node
+        .data(m_data)
+        .append("image")
+            .attr("class", "image m-" + m_count)
+            .attr("width", "52")
+            .attr("height", "52")
+            .attr("xlink:href", function(d) { return "src/img/" + d.type + "/" + d.img + ".png"; });
+
+    /* Hide tooltip */
+    if (removal) {
+        m_tip.hide();
+    }
+
+    m_force.start();
 }
 
 /* Handle clear plate button */
