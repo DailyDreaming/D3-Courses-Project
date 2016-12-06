@@ -22,7 +22,7 @@ var bmr = 0,
     sex,
     activity_level;
 
-/* Initialize default plate foods */
+/* Initialize default plate classs */
 var defaults = [
     "AMS 131",
     "CMPE 107"
@@ -31,28 +31,28 @@ var defaults = [
 /* Create categories */
 var categories = [
     {
-        name: "Programming Introduction",
-        type: "fruit",
+        name: "Computer Science",
+        type: "cmps",
         row: 1,
         col: 1,
         color: "#b5bd68"
     },
     {
-        name: "Physics or Chemistry",
+        name: "Computer Engineering",
         type: "pastry",
         row: 1,
         col: 2,
         color: "#a3685a"
     },
     {
-        name: "Statistics",
+        name: "Math",
         type: "beverage",
         row: 1,
         col: 3,
         color: "#81a2be"
     },
     {
-        name: "",
+        name: "Physics",
         type: "egg-meat",
         row: 2,
         col: 1,
@@ -107,15 +107,15 @@ var menu = d3.select("#menu")
         .append("g")
         .attr("transform", "translate(" + m_margin.left + "," + m_margin.top + ")");
 
-/* Import and process foods data */
-d3.json("src/json/foods.json", function(error, m_data) {
+/* Import and process classs data */
+d3.json("src/json/classes.json", function(error, m_data) {
     if (error) throw error;
 
     /* Iterate over data */
     m_data.forEach(function(d) {
-        /* Get default food occurrence count */
+        /* Get default class occurrence count */
         var count = defaults.reduce(function(n, f) {
-            return n + (f === d.food ? 1 : 0);
+            return n + (f === d.class ? 1 : 0);
         }, 0);
 
         /* Set focus */
@@ -132,15 +132,14 @@ d3.json("src/json/foods.json", function(error, m_data) {
         /* Set radius */
         d.radius = m_radius;
 
-        /* Add default foods to plate */
+        /* Add default classs to plate */
         for (var i = 0; i < count; i++) {
             p_data.push({
-                "food": d.food,
+                "class": d.class,
                 "type": d.type,
                 "img": d.img,
                 "serving": d.serving,
-                "calories": d.calories,
-                "cholesterol": d.cholesterol,
+                "prereq": d.prereq,
                 "sodium": d.sodium,
                 "color": d.color,
                 "radius": p_radius,
@@ -169,11 +168,10 @@ d3.json("src/json/foods.json", function(error, m_data) {
             return d.row === 1 ? "s" : "n";
         })
         .html(function(d) {
-        var data = "<strong><em>" + d.food + "</em></strong>";
+        var data = "<strong><em>" + d.class + "</em></strong>";
 
         data += "<div class='clearfix'><strong>Units: </strong><em>"       + d.serving       + "</em></div>";
-        data += "<div class='clearfix'><strong>Prereq: </strong><em>"      + d.calories      + "</em></div>";
-        data += "<div class='clearfix'><strong>Season: </strong><em>"   + d.cholesterol   + "</em></div>";
+        data += "<div class='clearfix'><strong>Prerequisites: </strong><em>"   + d.prereq   + "</em></div>";
         data += "<div class='clearfix'><strong>Description: </strong><em>"        + d.sodium        + "</em></div>";
 
             return data;
@@ -205,12 +203,11 @@ d3.json("src/json/foods.json", function(error, m_data) {
         .on("mouseleave", m_tip.hide)
         .on("click", function(d) {
             p_data.push({
-                "food": d.food,
+                "class": d.class,
                 "type": d.type,
                 "img": d.img,
                 "serving": d.serving,
-                "calories": d.calories,
-                "cholesterol": d.cholesterol,
+                "prereq": d.prereq,
                 "sodium": d.sodium,
                 "color": d.color,
                 "radius": p_radius,
@@ -311,11 +308,10 @@ var p_tip = d3.tip()
     .attr("class", "d3-tip")
     .offset([-6, 0])
     .html(function(d) {
-        var data = "<strong><em>" + d.food + "</em></strong>";
+        var data = "<strong><em>" + d.class + "</em></strong>";
 
         data += "<div class='clearfix'><strong>Units: </strong><em>"       + d.serving       + "</em></div>";
-        data += "<div class='clearfix'><strong>Prereq: </strong><em>"      + d.calories      + "</em></div>";
-        data += "<div class='clearfix'><strong>Season: </strong><em>"   + d.cholesterol   + "</em></div>";
+        data += "<div class='clearfix'><strong>Prerequisites: </strong><em>"   + d.prereq   + "</em></div>";
         data += "<div class='clearfix'><strong>Description: </strong><em>"        + d.sodium        + "</em></div>";
 
         return data;

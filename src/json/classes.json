@@ -1,0 +1,82 @@
+[
+    {
+    "food": "CMPS 101",
+    "type": "cmps",
+    "img": "apple",
+    "serving": "Abstract Data Types",
+    "calories": "",
+    "fat": 0.31,
+    "prereq": 0,
+    "sodium": 2
+  },
+    {
+    "food": "CMPS 130",
+    "type": "cmps",
+    "img": "apple",
+    "serving": "Computational Methods",
+    "calories": "",
+    "fat": 0.31,
+    "prereq": 0,
+    "sodium": 2
+  },
+    {
+    "food": "CMPS 112",
+    "type": "cmps",
+    "img": "apple",
+    "serving": "Compartive Prog. Langs.",
+    "calories": "",
+    "fat": 0.31,
+    "prereq": 0,
+    "sodium": 2
+  },
+    {
+    "food": "Math 21",
+    "type": "cereal",
+    "img": "maple-syrup",
+    "serving": 244,
+    "calories": 149,
+    "fat": 7.93,
+    "prereq": 24,
+    "sodium": 105
+  },
+    {
+    "food": "Math 21",
+    "type": "egg-meat",
+    "img": "maple-syrup",
+    "serving": 244,
+    "calories": 149,
+    "fat": 7.93,
+    "prereq": 24,
+    "sodium": 105
+  },
+    {
+    "food": "Math 21",
+    "type": "beverage",
+    "img": "maple-syrup",
+    "serving": 244,
+    "calories": 149,
+    "fat": 7.93,
+    "prereq": 24,
+    "sodium": 105
+  },
+    {
+    "food": "Math 21",
+    "type": "pastry",
+    "img": "maple-syrup",
+    "serving": 244,
+    "calories": 149,
+    "fat": 7.93,
+    "prereq": 24,
+    "sodium": 105
+  },
+    {
+    "food": "Math 21",
+    "type": "other",
+    "img": "maple-syrup",
+    "serving": 244,
+    "calories": 149,
+    "fat": 7.93,
+    "prereq": 24,
+    "sodium": 105
+  }
+]
