@@ -159,12 +159,6 @@ d3.json("src/json/classes.json", function(error, m_data) {
     /* Initialize default plate */
     p_start(false);
 
-    /* Initialize default recommendation */
-   // handle_form_inputs();
-
-    /* Initialize default table values */
-   // update_plate_totals();
-
     /* Initialize tooltip */
     var m_tip = d3.tip()
         .attr("class", "d3-tip")
@@ -224,8 +218,6 @@ d3.json("src/json/classes.json", function(error, m_data) {
             });
 
             p_start(false);
-
-            update_plate_totals();
         });
 
     /* Create images */
@@ -318,10 +310,9 @@ var p_tip = d3.tip()
     .html(function(d) {
         var data = "<strong><em>" + d.course + "</em></strong>";
 
-        data += "<div class='clearfix'><strong>Course Title: </strong><em>"       + d.title       + "</em></div>";
-        data += "<div class='clearfix'><strong>Units: </strong><em>"       + d.units       + "</em></div>";
-        data += "<div class='clearfix'><strong>Prerequisites: </strong><em>"   + d.prereq   + "</em></div>";
-        data += "<div class='clearfix'><strong>Description: </strong><em>"        + d.info        + "</em></div>";
+        data += "<div class='clearfix'><strong>Course Title: </strong><em>"  + d.title  + "</em></div>";
+        data += "<div class='clearfix'><strong>Prerequisites: </strong><em>" + d.prereq + "</em></div>";
+        data += "<div class='clearfix'><strong>Description: </strong><em>"   + d.info   + "</em></div>";
 
         return data;
     });
@@ -439,8 +430,6 @@ function p_start(removal) {
                 p_data.splice(d.index, 1);
 
                 p_start(true);
-
-                update_plate_totals();
             });
 
     /* Create image */
@@ -465,8 +454,6 @@ d3.select("#clear_plate").on("click", function() {
     p_data.splice(0, p_data.length)
 
     p_start(true);
-
-    update_plate_totals();
 });
 
 
