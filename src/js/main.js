@@ -36,7 +36,7 @@ var defaults = [
 ];
 
 scroll_courses = 
-intro_courses = ["cmps_12_a", "cmps_5", "cmps_11", "cmps_13_l", "cmps_12_b", "cmps_12_h"]
+intro_courses = ["cmps_12_a", "cmps_5", "cmps_11", "cmpe_13_l", "cmps_12_b", "cmps_13_h"]
 phys_courses = ["phys_5_a", "phys_5_b", "phys_5_c", "chem_1_a", "chem_1_b", "chem_1_c"]
 math_courses = ["math_19_a", "math_19_b", "math_23_a", "ams_10", "math_21"]
 cmpe_courses = ["cmpe_16", "cmpe_12_l", "cmpe_110"]
@@ -101,7 +101,9 @@ var m_margin = {top: 0, right: 0, bottom: 0, left: 0},
     m_width  = 840 - m_margin.left - m_margin.right,
     m_height = 600 - m_margin.top - m_margin.bottom,
     m_radius = 26,
-    m_padding = 48;
+    m_padding = 48,
+    m_count = 0,   //new
+    m_xdata = [];  //new - maybe not needed
 
 /* Initialize plate settings */
 var p_margin = {top: 0, right: 0, bottom: 0, left: 0},
@@ -129,7 +131,6 @@ d3.json("src/json/classes.json", function(error, m_data) {
 
     /* Iterate over data */
     m_data.forEach(function(d) {
-        d.course_id = d.course_id
         /* Get default food occurrence count */
         var count = defaults.reduce(function(n, f) {
             return n + (f === d.course ? 1 : 0);
@@ -159,7 +160,7 @@ d3.json("src/json/classes.json", function(error, m_data) {
                 "prereq": d.prereq,
                 "info": d.info,
                 "color": d.color,
-                "course_id": d.course_id,
+                "id": d.id,
                 "radius": p_radius,
                 "cx": p_width / 2,
                 "cy": p_height / 2
@@ -169,12 +170,6 @@ d3.json("src/json/classes.json", function(error, m_data) {
 
     /* Initialize default plate */
     p_start(false);
-
-    /* Initialize default recommendation */
-   // handle_form_inputs();
-
-    /* Initialize default table values */
-   // update_plate_totals();
 
     /* Initialize tooltip */
     var m_tip = d3.tip()
@@ -229,7 +224,7 @@ d3.json("src/json/classes.json", function(error, m_data) {
                 "prereq": d.prereq,
                 "info": d.info,
                 "color": d.color,
-                "course_id": d.course_id,
+                "id": d.id,
                 "radius": p_radius,
                 "cx": p_width / 2,
                 "cy": p_height / 2
@@ -237,7 +232,7 @@ d3.json("src/json/classes.json", function(error, m_data) {
 
             /* On this click, the class is moved onto the plate */
             console.log ("viktor")
-            course_id = d.course_id
+            course_id = d.id
             square = document.getElementById(course_id)
             square.style.backgroundColor = d.color
             square.style.color = "black";
@@ -246,6 +241,7 @@ d3.json("src/json/classes.json", function(error, m_data) {
             lightUpCourses()
 
             update_plate_totals();
+
         });
 
     /* Create images */
@@ -322,25 +318,73 @@ d3.json("src/json/classes.json", function(error, m_data) {
     function lightUpCourses() {
       for (var i=0; i < scroll_courses.length; i++) {
         course_array = scroll_courses[i]
+        all_done = true
         for (var j = 0; j < course_array.length; j++) {
           course_id = course_array[j]
           square = document.getElementById(course_id)
           if (square !== null) {
             bg_color = square.style.backgroundColor
-            if (bg_color !== null) {
-              console.log(course_id)
-              console.log(square)
-              console.log(bg_color)
-            } else {
-              console.log(course_id)
-              console.log(square)
-              console.log("no background color")
+            if (bg_color === "") {
+              all_done = false
+            }
+            else {
+              console.log(bg_color)  
             }
           }
         }
+
+        console.log("lightup" + all_done)
+        if (all_done) {
+          first = course_array[0]
+          console.log(first)
+          top_elem = document.getElementById(first).parentElement.parentElement.parentElement
+          top_elem.style.backgroundColor = "green"
+        }
+        else {
+          first = course_array[0]
+          console.log(first)
+          top_elem = document.getElementById(first).parentElement.parentElement.parentElement
+          top_elem.style.backgroundColor = "#e6e7e8"
+        }
+        
       }
     }
 });
+
+function lightUpCourses() {
+  for (var i=0; i < scroll_courses.length; i++) {
+    course_array = scroll_courses[i]
+    all_done = true
+    for (var j = 0; j < course_array.length; j++) {
+      course_id = course_array[j]
+      square = document.getElementById(course_id)
+      if (square !== null) {
+        bg_color = square.style.backgroundColor
+        if (bg_color === "") {
+          all_done = false
+        }
+        else {
+          console.log(bg_color)  
+        }
+      }
+    }
+
+    console.log("lightup" + all_done)
+    if (all_done) {
+      first = course_array[0]
+      console.log(first)
+      top_elem = document.getElementById(first).parentElement.parentElement.parentElement
+      top_elem.style.backgroundColor = "green"
+    }
+    else {
+      first = course_array[0]
+      console.log(first)
+      top_elem = document.getElementById(first).parentElement.parentElement.parentElement
+      top_elem.style.backgroundColor = "#e6e7e8"
+    }
+    
+  }
+}
 
 /* Create plate canvas */
 var plate = d3.select("#plate")
@@ -360,10 +404,9 @@ var p_tip = d3.tip()
     .html(function(d) {
         var data = "<strong><em>" + d.course + "</em></strong>";
 
-        data += "<div class='clearfix'><strong>Course Title: </strong><em>"       + d.title       + "</em></div>";
-        data += "<div class='clearfix'><strong>Units: </strong><em>"       + d.units       + "</em></div>";
-        data += "<div class='clearfix'><strong>Prerequisites: </strong><em>"   + d.prereq   + "</em></div>";
-        data += "<div class='clearfix'><strong>Description: </strong><em>"        + d.info        + "</em></div>";
+        data += "<div class='clearfix'><strong>Course Title: </strong><em>"  + d.title  + "</em></div>";
+        data += "<div class='clearfix'><strong>Prerequisites: </strong><em>" + d.prereq + "</em></div>";
+        data += "<div class='clearfix'><strong>Description: </strong><em>"   + d.info   + "</em></div>";
 
         return data;
     });
@@ -482,17 +525,69 @@ function p_start(removal) {
                 p_data.splice(d.index, 1);
 
                 p_start(true);
+            });
+
+    /* Create image */
+    p_img = p_node
+        .data(p_data)
+        .append("image")
+            .attr("class", "image p-" + p_count)
+            .attr("width", "52")
+            .attr("height", "52")
+            .attr("xlink:href", function(d) { return "src/img/" + d.type + "/" + d.img + ".png"; });
+
+    /* Hide tooltip */
+    if (removal) {
+        p_tip.hide();
+    }
+
+    p_force.start();
+}
+function p_start(removal) {
+    /* Update node */
+    p_node = p_node.data(p_data);
+
+    /* Remove old circles and images */
+    p_node.selectAll(".p-" + p_count).remove();
+
+    /* Remove old nodes */
+    p_node.exit().remove();
+
+    /* Increment count */
+    p_count++;
+
+    /* Create node */
+    p_node
+        .enter()
+        .append("g");
+
+    /* Create circle */
+    p_circle = p_node
+        .data(p_data)
+        .append("circle")
+            .attr("class", "circle p-" + p_count)
+            .attr("r", function() { return p_radius; })
+            .style("fill", function(d) { return d.color; })
+            .on("mouseover", p_tip.show)
+            .on("mouseleave", p_tip.hide)
+            .on("click", function(d) {
+                p_data.splice(d.index, 1);
 
                 /*console.log("course_id" + d.course_id);*/
                 /* On this click, the class is moved off the plate */
                 console.log("jankov");
                 console.log (JSON.stringify(d)) 
-                course_id = d.course_id
+                course_id = d.id
                 console.log(course_id);
                 square = document.getElementById(course_id)
                 square.style.backgroundColor = "white"
                 square.style.color = "#e6e7e8";
+
+                /*lightUpCourses()*/
                 update_plate_totals();
+
+                p_start(true);
+
             });
 
     /* Create image */
@@ -512,13 +607,61 @@ function p_start(removal) {
     p_force.start();
 }
 
+function m_start(removal) {
+    /* Update node */
+    m_node = m_node.data(m_data);
+
+    /* Remove old circles and images */
+    m_node.selectAll(".p-" + m_count).remove();
+
+    /* Remove old nodes */
+    m_node.exit().remove();
+
+    /* Increment count */
+    m_count++;
+
+    /* Create node */
+    m_node
+        .enter()
+        .append("g");
+
+    /* Create circle */
+    m_circle = m_node
+        .data(m_data)
+        .append("circle")
+            .attr("class", "circle m-" + m_count)
+            .attr("r", function() { return m_radius; })
+            .style("fill", function(d) { return d.color; })
+            .on("mouseover", m_tip.show)
+            .on("mouseleave", m_tip.hide)
+            .on("click", function(d) {
+                m_data.splice(d.index, 1);
+
+                m_start(true);
+            });
+
+    /* Create image */
+    m_img = m_node
+        .data(m_data)
+        .append("image")
+            .attr("class", "image m-" + m_count)
+            .attr("width", "52")
+            .attr("height", "52")
+            .attr("xlink:href", function(d) { return "src/img/" + d.type + "/" + d.img + ".png"; });
+
+    /* Hide tooltip */
+    if (removal) {
+        m_tip.hide();
+    }
+
+    m_force.start();
+}
+
 /* Handle clear plate button */
 d3.select("#clear_plate").on("click", function() {
     p_data.splice(0, p_data.length)
 
     p_start(true);
-
-    update_plate_totals();
 });
 
 
