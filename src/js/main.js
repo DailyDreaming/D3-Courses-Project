@@ -35,12 +35,14 @@ var defaults = [
     "CMPS 130"
 ];
 
+scroll_courses = 
 intro_courses = ["cmps_12_a", "cmps_5", "cmps_11", "cmps_13_l", "cmps_12_b", "cmps_12_h"]
-pysical_science_courses = ["phys_5_a", "phys_5_b", "phys_5_c", "chem_1_a", "chem_1_b", "chem_1_c"]
+phys_courses = ["phys_5_a", "phys_5_b", "phys_5_c", "chem_1_a", "chem_1_b", "chem_1_c"]
 math_courses = ["math_19_a", "math_19_b", "math_23_a", "ams_10", "math_21"]
 cmpe_courses = ["cmpe_16", "cmpe_12_l", "cmpe_110"]
 cmps_courses = ["cmps_101", "cmps_104_a", "cmps_111", "cmps_102", "cmps_112", "cmps_130"]
-electives = ["elective_1","elective_2", "elective_3", "elective_4"]
+electives_courses = ["elective_1","elective_2", "elective_3", "elective_4"]
+scroll_courses = [intro_courses, phys_courses, math_courses, cmpe_courses, cmps_courses, electives_courses]
 
 /* Create categories */
 var categories = [
@@ -127,8 +129,6 @@ d3.json("src/json/classes.json", function(error, m_data) {
 
     /* Iterate over data */
     m_data.forEach(function(d) {
-        console.log(JSON.stringify(d))
-        console.log(d.course_id)
         d.course_id = d.course_id
         /* Get default food occurrence count */
         var count = defaults.reduce(function(n, f) {
@@ -243,6 +243,8 @@ d3.json("src/json/classes.json", function(error, m_data) {
             square.style.color = "black";
             p_start(false);
 
+            lightUpCourses()
+
             update_plate_totals();
         });
 
@@ -315,6 +317,28 @@ d3.json("src/json/classes.json", function(error, m_data) {
                 return x1 > nx2 || x2 < nx1 || y1 > ny2 || y2 < ny1;
             });
         };
+    }
+  
+    function lightUpCourses() {
+      for (var i=0; i < scroll_courses.length; i++) {
+        course_array = scroll_courses[i]
+        for (var j = 0; j < course_array.length; j++) {
+          course_id = course_array[j]
+          square = document.getElementById(course_id)
+          if (square !== null) {
+            bg_color = square.style.backgroundColor
+            if (bg_color !== null) {
+              console.log(course_id)
+              console.log(square)
+              console.log(bg_color)
+            } else {
+              console.log(course_id)
+              console.log(square)
+              console.log("no background color")
+            }
+          }
+        }
+      }
     }
 });
 
