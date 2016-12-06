@@ -13,15 +13,6 @@ function gravity(alpha) {
 /* Create number formatter function */
 var format_number = d3.format(",.2f");
 
-/* Initialize calculation and input values */
-var bmr = 0,
-    bmi = 0,
-    age,
-    weight,
-    height,
-    sex,
-    activity_level;
-
 /* Initialize default plate foods */
 var defaults = [
     "CMPE 16",
@@ -42,43 +33,37 @@ var categories = [
         type: "cmps",
         row: 1,
         col: 1,
-        color: "#b5bd68"
-    },
+        color: "#b5bd68"},
     {
         name: "Computer Engineering",
         type: "cmpe",
         row: 1,
         col: 2,
-        color: "#a3685a"
-    },
+        color: "#a3685a"},
     {
         name: "Math",
         type: "math",
         row: 1,
         col: 3,
-        color: "#81a2be"
-    },
+        color: "#81a2be"},
     {
         name: "Physics",
         type: "physics",
         row: 2,
         col: 1,
-        color: "#cc6666"
-    },
+        color: "#cc6666"},
     {
         name: "Chemistry",
         type: "chemistry",
         row: 2,
         col: 2,
-        color: "#f0c674"
-    },
+        color: "#f0c674"},
     {
         name: "Capstone",
         type: "capstone",
         row: 2,
         col: 3,
-        color: "#b294bb"
-    }
+        color: "#b294bb"}
 ];
 
 /* Create category lookup */
@@ -220,6 +205,8 @@ d3.json("src/json/classes.json", function(error, m_data) {
             });
 
             p_start(false);
+
+            //m_start(false);
         });
 
     /* Create images */
@@ -238,6 +225,56 @@ d3.json("src/json/classes.json", function(error, m_data) {
             .attr("x", function(d) { return d.col * Math.floor(m_width / 3) - Math.floor(m_width / 6); })
             .attr("y", function(d) { return d.row * Math.floor(m_height / 2) - Math.floor(m_height / 4) + (d.row === 1 ? -135 : 135); })
             .text(function(d) { return d.name; });
+
+function m_start(removal) {
+    /* Update node */
+    m_node = m_node.data(m_data);
+
+    /* Remove old circles and images */
+    m_node.selectAll(".p-" + m_count).remove();
+
+    /* Remove old nodes */
+    m_node.exit().remove();
+
+    /* Increment count */
+    m_count++;
+
+    /* Create node */
+    m_node
+        .enter()
+        .append("g");
+
+    /* Create circle */
+    m_circle = m_node
+        .data(m_data)
+        .append("circle")
+            .attr("class", "circle m-" + m_count)
+            .attr("r", function() { return m_radius; })
+            .style("fill", function(d) { return d.color; })
+            .on("mouseover", m_tip.show)
+            .on("mouseleave", m_tip.hide)
+            .on("click", function(d) {
+                m_data.splice(d.index, 1);
+
+                m_start(true);
+            });
+
+    /* Create image */
+    m_img = m_node
+        .data(m_data)
+        .append("image")
+            .attr("class", "image m-" + m_count)
+            .attr("width", "52")
+            .attr("height", "52")
+            .attr("xlink:href", function(d) { return "src/img/" + d.type + "/" + d.img + ".png"; });
+
+    /* Hide tooltip */
+    if (removal) {
+        m_tip.hide();
+    }
+
+    m_force.start();
+}
 
     /**
      * Mike Bostock
@@ -297,11 +334,9 @@ d3.json("src/json/classes.json", function(error, m_data) {
 /* Create plate canvas */
 var plate = d3.select("#plate")
         .attr("style", "width:" + (p_width + p_margin.left + p_margin.right) + "px;height:" + (p_height + p_margin.top + p_margin.bottom) + "px;")
-        
         .append("svg")
         .attr("width", p_width + p_margin.left + p_margin.right)
         .attr("height", p_height + p_margin.top + p_margin.bottom)
-        
         .append("g")
         .attr("transform", "translate(" + p_margin.left + "," + p_margin.top + ")");
 
@@ -311,8 +346,8 @@ var p_tip = d3.tip()
     .offset([-6, 0])
     .html(function(d) {
         var data = "<strong><em>" + d.course + "</em></strong>";
-
         data += "<div class='clearfix'><strong>Course Title: </strong><em>"  + d.title  + "</em></div>";
+        data += "<div class='clearfix'><strong>Units: </strong><em>"         + d.units  + "</em></div>";
         data += "<div class='clearfix'><strong>Prerequisites: </strong><em>" + d.prereq + "</em></div>";
         data += "<div class='clearfix'><strong>Description: </strong><em>"   + d.info   + "</em></div>";
 
@@ -432,6 +467,7 @@ function p_start(removal) {
                 p_data.splice(d.index, 1);
 
                 p_start(true);
+                //m_start(true);
             });
 
     /* Create image */
@@ -449,56 +485,6 @@ function p_start(removal) {
     }
 
     p_force.start();
-}
-
-function m_start(removal) {
-    /* Update node */
-    m_node = m_node.data(m_data);
-
-    /* Remove old circles and images */
-    m_node.selectAll(".p-" + m_count).remove();
-
-    /* Remove old nodes */
-    m_node.exit().remove();
-
-    /* Increment count */
-    m_count++;
-
-    /* Create node */
-    m_node
-        .enter()
-        .append("g");
-
-    /* Create circle */
-    m_circle = m_node
-        .data(m_data)
-        .append("circle")
-            .attr("class", "circle m-" + m_count)
-            .attr("r", function() { return m_radius; })
-            .style("fill", function(d) { return d.color; })
-            .on("mouseover", m_tip.show)
-            .on("mouseleave", m_tip.hide)
-            .on("click", function(d) {
-                m_data.splice(d.index, 1);
-
-                m_start(true);
-            });
-
-    /* Create image */
-    m_img = m_node
-        .data(m_data)
-        .append("image")
-            .attr("class", "image m-" + m_count)
-            .attr("width", "52")
-            .attr("height", "52")
-            .attr("xlink:href", function(d) { return "src/img/" + d.type + "/" + d.img + ".png"; });
-
-    /* Hide tooltip */
-    if (removal) {
-        m_tip.hide();
-    }
-
-    m_force.start();
 }
 
 /* Handle clear plate button */
