@@ -22,7 +22,7 @@ var bmr = 0,
     sex,
     activity_level;
 
-/* Initialize default plate classs */
+/* Initialize default plate foods */
 var defaults = [
     "AMS 131",
     "CMPE 107"
@@ -39,35 +39,35 @@ var categories = [
     },
     {
         name: "Computer Engineering",
-        type: "pastry",
+        type: "cmpe",
         row: 1,
         col: 2,
         color: "#a3685a"
     },
     {
         name: "Math",
-        type: "beverage",
+        type: "math",
         row: 1,
         col: 3,
         color: "#81a2be"
     },
     {
         name: "Physics",
-        type: "egg-meat",
+        type: "physics",
         row: 2,
         col: 1,
         color: "#cc6666"
     },
     {
-        name: "",
-        type: "cereal",
+        name: "Chemistry",
+        type: "chemistry",
         row: 2,
         col: 2,
         color: "#f0c674"
     },
     {
-        name: "",
-        type: "other",
+        name: "Capstone",
+        type: "capstone",
         row: 2,
         col: 3,
         color: "#b294bb"
@@ -84,14 +84,14 @@ var category_lookup = categories.reduce(function(lookup, c, i) {
 var m_margin = {top: 0, right: 0, bottom: 0, left: 0},
     m_width  = 840 - m_margin.left - m_margin.right,
     m_height = 600 - m_margin.top - m_margin.bottom,
-    m_radius = 32,
+    m_radius = 26,
     m_padding = 48;
 
 /* Initialize plate settings */
 var p_margin = {top: 0, right: 0, bottom: 0, left: 0},
     p_width  = 440 - p_margin.left - p_margin.right,
     p_height = 600 - p_margin.top - p_margin.bottom,
-    p_radius = 32,
+    p_radius = 26,
     p_padding = 0,
     p_count = 0,
     p_data = [];
@@ -107,15 +107,15 @@ var menu = d3.select("#menu")
         .append("g")
         .attr("transform", "translate(" + m_margin.left + "," + m_margin.top + ")");
 
-/* Import and process classs data */
+/* Import and process foods data */
 d3.json("src/json/classes.json", function(error, m_data) {
     if (error) throw error;
 
     /* Iterate over data */
     m_data.forEach(function(d) {
-        /* Get default class occurrence count */
+        /* Get default food occurrence count */
         var count = defaults.reduce(function(n, f) {
-            return n + (f === d.class ? 1 : 0);
+            return n + (f === d.course ? 1 : 0);
         }, 0);
 
         /* Set focus */
@@ -132,15 +132,15 @@ d3.json("src/json/classes.json", function(error, m_data) {
         /* Set radius */
         d.radius = m_radius;
 
-        /* Add default classs to plate */
+        /* Add default foods to plate */
         for (var i = 0; i < count; i++) {
             p_data.push({
-                "class": d.class,
+                "course": d.course,
                 "type": d.type,
                 "img": d.img,
-                "serving": d.serving,
+                "title": d.title,
                 "prereq": d.prereq,
-                "sodium": d.sodium,
+                "info": d.info,
                 "color": d.color,
                 "radius": p_radius,
                 "cx": p_width / 2,
@@ -168,11 +168,11 @@ d3.json("src/json/classes.json", function(error, m_data) {
             return d.row === 1 ? "s" : "n";
         })
         .html(function(d) {
-        var data = "<strong><em>" + d.class + "</em></strong>";
+        var data = "<strong><em>" + d.course + "</em></strong>";
 
-        data += "<div class='clearfix'><strong>Units: </strong><em>"       + d.serving       + "</em></div>";
+        data += "<div class='clearfix'><strong>Units: </strong><em>"       + d.title       + "</em></div>";
         data += "<div class='clearfix'><strong>Prerequisites: </strong><em>"   + d.prereq   + "</em></div>";
-        data += "<div class='clearfix'><strong>Description: </strong><em>"        + d.sodium        + "</em></div>";
+        data += "<div class='clearfix'><strong>Description: </strong><em>"        + d.info        + "</em></div>";
 
             return data;
         });
@@ -203,12 +203,12 @@ d3.json("src/json/classes.json", function(error, m_data) {
         .on("mouseleave", m_tip.hide)
         .on("click", function(d) {
             p_data.push({
-                "class": d.class,
+                "course": d.course,
                 "type": d.type,
                 "img": d.img,
-                "serving": d.serving,
+                "title": d.title,
                 "prereq": d.prereq,
-                "sodium": d.sodium,
+                "info": d.info,
                 "color": d.color,
                 "radius": p_radius,
                 "cx": p_width / 2,
@@ -308,11 +308,11 @@ var p_tip = d3.tip()
     .attr("class", "d3-tip")
     .offset([-6, 0])
     .html(function(d) {
-        var data = "<strong><em>" + d.class + "</em></strong>";
+        var data = "<strong><em>" + d.course + "</em></strong>";
 
-        data += "<div class='clearfix'><strong>Units: </strong><em>"       + d.serving       + "</em></div>";
+        data += "<div class='clearfix'><strong>Units: </strong><em>"       + d.title       + "</em></div>";
         data += "<div class='clearfix'><strong>Prerequisites: </strong><em>"   + d.prereq   + "</em></div>";
-        data += "<div class='clearfix'><strong>Description: </strong><em>"        + d.sodium        + "</em></div>";
+        data += "<div class='clearfix'><strong>Description: </strong><em>"        + d.info        + "</em></div>";
 
         return data;
     });

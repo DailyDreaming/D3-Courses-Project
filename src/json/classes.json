@@ -1,82 +1,381 @@
 [
     {
-    "food": "CMPS 101",
+    "course": "CMPS 101",
     "type": "cmps",
-    "img": "apple",
-    "serving": "Abstract Data Types",
-    "calories": "",
-    "fat": 0.31,
-    "prereq": 0,
-    "sodium": 2
+    "img": "101",
+    "title": "Abstract Data Types",
+    "info": "",
+    "prereq": ""
   },
     {
-    "food": "CMPS 130",
+    "course": "CMPS 130",
     "type": "cmps",
-    "img": "apple",
-    "serving": "Computational Methods",
-    "calories": "",
-    "fat": 0.31,
-    "prereq": 0,
-    "sodium": 2
+    "img": "130",
+    "title": "Computational Methods",
+    "info": "",
+    "prereq": ""
   },
     {
-    "food": "CMPS 112",
+    "course": "CMPS 112",
     "type": "cmps",
-    "img": "apple",
-    "serving": "Compartive Prog. Langs.",
-    "calories": "",
-    "fat": 0.31,
-    "prereq": 0,
-    "sodium": 2
+    "img": "112",
+    "title": "Comparative Prog. Langs.",
+    "info": "",
+    "prereq": ""
+  },
+  {
+    "course": "CMPS 12A/L",
+    "type": "cmps",
+    "img": "12A",
+    "title": "Intro to Prog.(Accelerated)",
+    "info": "",
+    "prereq": ""
   },
     {
-    "food": "Math 21",
-    "type": "cereal",
-    "img": "maple-syrup",
-    "serving": 244,
-    "calories": 149,
-    "fat": 7.93,
-    "prereq": 24,
-    "sodium": 105
+    "course": "CMPS 104A",
+    "type": "cmps",
+    "img": "104a",
+    "title": "Compiler Design 1",
+    "info": "",
+    "prereq": ""
+  },
+  {
+    "course": "CMPS 12B/M",
+    "type": "cmps",
+    "img": "12bm",
+    "title": "Data Structures",
+    "info": "",
+    "prereq": ""
   },
     {
-    "food": "Math 21",
-    "type": "egg-meat",
-    "img": "maple-syrup",
-    "serving": 244,
-    "calories": 149,
-    "fat": 7.93,
-    "prereq": 24,
-    "sodium": 105
+    "course": "CMPS 111",
+    "type": "cmps",
+    "img": "111",
+    "title": "Operating Systems",
+    "info": "",
+    "prereq": ""
   },
     {
-    "food": "Math 21",
-    "type": "beverage",
-    "img": "maple-syrup",
-    "serving": 244,
-    "calories": 149,
-    "fat": 7.93,
-    "prereq": 24,
-    "sodium": 105
+    "course": "CMPS 102",
+    "type": "cmps",
+    "img": "102",
+    "title": "Anaylsis of Algorithms",
+    "info": "",
+    "prereq": ""
+   
+  },
+  {
+    "course": "CMPE 13/L",
+    "type": "cmpe",
+    "img": "13l",
+    "title": "Computer Sys. & C Prog.",
+    "info": "",
+    "prereq": ""
+  },
+  {
+    "course": "CMPS 13H/L",
+    "type": "cmps",
+    "img": "13hl",
+    "title": "Intro to Prog. & Data Struc.",
+    "info": "",
+    "prereq": ""
   },
     {
-    "food": "Math 21",
-    "type": "pastry",
-    "img": "maple-syrup",
-    "serving": 244,
-    "calories": 149,
-    "fat": 7.93,
-    "prereq": 24,
-    "sodium": 105
+    "course": "CMPS 5J",
+    "type": "cmps",
+    "img": "5j",
+    "title": "",
+    "info": "",
+    "prereq": ""
   },
     {
-    "food": "Math 21",
-    "type": "other",
-    "img": "maple-syrup",
-    "serving": 244,
-    "calories": 149,
-    "fat": 7.93,
-    "prereq": 24,
-    "sodium": 105
+    "course": "CMPS 11",
+    "type": "cmps",
+    "img": "11",
+    "title": "",
+    "info": "",
+    "prereq": ""
+  },
+     {
+    "course": "CMPS 115",
+    "type": "cmps",
+    "img": "115",
+    "title": "Intro Software Eng",
+    "info": "",
+    "prereq": ""
+  },
+     {
+    "course": "CMPS 132/W",
+    "type": "cmps",
+    "img": "132w",
+    "title": "Computability and Computational Complexity",
+    "info": "",
+    "prereq": ""
+  },
+    {
+    "course": "CMPS 180/W",
+    "type": "cmps",
+    "img": "180w",
+    "title": "Database Systems",
+    "info": "concepts, approaches, tools, and methodology of database design",
+    "prereq": ""
+  },
+    {
+    "course": "CMPS 185",
+    "type": "cmps",
+    "img": "185",
+    "title": "Techincal Writing",
+    "info": "Writing and communication by computer science professionals to a technical audience",
+    "prereq": ""
+  },
+    {
+    "course": "CMPS 195",
+    "type": "cmps",
+    "img": "195",
+    "title": "Computability and Computational Complexity",
+    "info": "",
+    "prereq": ""
+  },
+    {
+    "course": "CMPS 161/L",
+    "type": "cmps",
+    "img": "161l",
+    "title": "Intro. Data Visualization",
+    "info": "",
+    "prereq": ""
+  },
+    {
+    "course": "CMPS 181",
+    "type": "cmps",
+    "img": "181",
+    "title": "Database System II",
+    "info": "",
+    "prereq": ""
+  },
+    {
+    "course": "CMPS 104B",
+    "type": "cmps",
+    "img": "104b",
+    "title": "Fundamentals of Compiler Design II",
+    "info": "",
+    "prereq": ""
+  },
+    {
+    "course": "CMPS 117",
+    "type": "cmps",
+    "img": "117",
+    "title": "Software Design Project III",
+    "info": "",
+    "prereq": ""
+  },
+  {
+    "course": "PHYS 5A/L",
+    "type": "physics",
+    "img": "5al",
+    "title": "Kinematics",
+    "info": "",
+    "prereq": ""
+  },
+    {
+    "course": "PHYS 6A/L",
+    "type": "physics",
+    "img": "6al",
+    "title": "Kinematics",
+    "info": "",
+    "prereq": ""
+  },
+  {
+    "course": "PHYS 5B/M",
+    "type": "physics",
+    "img": "5bm",
+    "title": "Waves",
+    "info": "",
+    "prereq": ""
+  },
+    {
+    "course": "PHYS 6B/M",
+    "type": "physics",
+    "img": "5bm",
+    "title": "Waves",
+    "info": "",
+    "prereq": ""
+  },
+    {
+    "course": "PHYS 5C/N",
+    "type": "physics",
+    "img": "5cn",
+    "title": "Electricity & magnitism",
+    "info": "",
+    "prereq": ""
+  },
+    {
+    "course": "PHYS 6C/N",
+    "type": "physics",
+    "img": "6cn",
+    "title": "Electricity & magnitism",
+    "info": "",
+    "prereq": ""
+  },
+  {
+    "course": "Chem 1A",
+    "type": "chemistry",
+    "img": "1a",
+    "title": "Stoicheometry",
+    "info": "",
+    "prereq": ""
+  },
+  {
+    "course": "Chem 1B/M",
+    "type": "chemistry",
+    "img": "1bm",
+    "title": "Intro to Quantum",
+    "info": "",
+    "prereq": ""
+  },
+    {
+    "course": "Chem 1C/N",
+    "type": "chemistry",
+    "img": "1cn",
+    "title": "Intro to Thermodyn.",
+    "info": "",
+    "prereq": ""
+  },
+    
+     {
+    "course": "CMPE 16",
+    "type": "cmpe",
+    "img": "16",
+    "title": "Applied Discrete Math",
+    "info": "",
+    "prereq": ""
+  },
+    {
+    "course": "CMPE 107",
+    "type": "cmpe",
+    "img": "107",
+    "title": "Prob and Stat.",
+    "info": "",
+    "prereq": ""
+  },
+    {
+    "course": "CMPE 110",
+    "type": "cmpe",
+    "img": "110",
+    "title": "Computer Architecture",
+    "info": "",
+    "prereq": "12/L"
+  },
+    {
+    "course": "CMPE 12/L",
+    "type": "cmpe",
+    "img": "12l",
+    "title": "Comp. Sys. and Assembly Lang.",
+    "info": "",
+    "prereq": ""
+  },
+    
+  {
+    "course": "AMS 131",
+    "type": "math",
+    "img": "131",
+    "title": "Prob. and Stat.",
+    "info": "",
+    "prereq": ""
+  },
+  {
+    "course": "AMS 10",
+    "type": "math",
+    "img": "10",
+    "title": "Intro to Prob. and Stat.",
+    "info": "",
+    "prereq": ""
+  },
+     {
+    "course": "MATH 148",
+    "type": "math",
+    "img": "148",
+    "title": "Numerical Analysis",
+    "info": "",
+    "prereq": ""
+  },
+     {
+    "course": "MATH 126",
+    "type": "math",
+    "img": "126",
+    "title": "Math. Control Theory",
+    "info": "",
+    "prereq": ""
+  },
+     {
+    "course": "MATH 117",
+    "type": "math",
+    "img": "117",
+    "title": "Advanced Linear Algb.",
+    "info": "",
+    "prereq": ""
+  },
+     {
+    "course": "MATH 115",
+    "type": "math",
+    "img": "115",
+    "title": "Graph Theory",
+    "info": "",
+    "prereq": ""
+  },
+     {
+    "course": "MATH 147",
+    "type": "math",
+    "img": "147",
+    "title": "Comp. Methods and App.",
+    "info": "",
+    "prereq": ""
+  },
+    {
+    "course": "MATH 114",
+    "type": "math",
+    "img": "114",
+    "title": "Intro to Dynamic Sys.",
+    "info": "",
+    "prereq": ""
+  },
+    {
+    "course": "MATH 23A",
+    "type": "math",
+    "img": "23a",
+    "title": "Multivariable Calc.",
+    "info": "",
+    "prereq": "19A, 19B, 20A, 20B"
+  },
+    {
+    "course": "MATH 20B",
+    "type": "math",
+    "img": "20b",
+    "title": "Integral Calc.",
+    "info": "",
+    "prereq": ""
+  },
+    {
+    "course": "Math 20A",
+    "type": "math",
+    "img": "20a",
+    "title": "Derivative Calc.",
+    "info": "",
+    "prereq": ""
+  },
+    {
+    "course": "Math 19B",
+    "type": "math",
+    "img": "19b",
+    "title": "Integral Calc.",
+    "info": "",
+    "prereq": ""
+  },
+  {
+    "course": "Math 19A",
+    "type": "math",
+    "img": "19a",
+    "title": "Derivative Calc.",
+    "info": "",
+    "prereq": ""
   }
 ]
