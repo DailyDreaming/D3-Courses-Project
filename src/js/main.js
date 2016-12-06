@@ -36,7 +36,7 @@ var defaults = [
 ];
 
 scroll_courses = 
-intro_courses = ["cmps_12_a", "cmps_5", "cmps_11", "cmpe_13_l", "cmps_12_b", "cmps_13_h"]
+intro_courses = ["cmps_12_a", "cmps_5_j", "cmps_11", "cmpe_13_l", "cmps_12_b", "cmps_13_h"]
 phys_courses = ["phys_5_a", "phys_5_b", "phys_5_c", "chem_1_a", "chem_1_b", "chem_1_c"]
 math_courses = ["math_19_a", "math_19_b", "math_23_a", "ams_10", "math_21"]
 cmpe_courses = ["cmpe_16", "cmpe_12_l", "cmpe_110"]
@@ -240,8 +240,6 @@ d3.json("src/json/classes.json", function(error, m_data) {
 
             lightUpCourses()
 
-            update_plate_totals();
-
         });
 
     /* Create images */
@@ -314,41 +312,6 @@ d3.json("src/json/classes.json", function(error, m_data) {
             });
         };
     }
-  
-    function lightUpCourses() {
-      for (var i=0; i < scroll_courses.length; i++) {
-        course_array = scroll_courses[i]
-        all_done = true
-        for (var j = 0; j < course_array.length; j++) {
-          course_id = course_array[j]
-          square = document.getElementById(course_id)
-          if (square !== null) {
-            bg_color = square.style.backgroundColor
-            if (bg_color === "") {
-              all_done = false
-            }
-            else {
-              console.log(bg_color)  
-            }
-          }
-        }
-
-        console.log("lightup" + all_done)
-        if (all_done) {
-          first = course_array[0]
-          console.log(first)
-          top_elem = document.getElementById(first).parentElement.parentElement.parentElement
-          top_elem.style.backgroundColor = "green"
-        }
-        else {
-          first = course_array[0]
-          console.log(first)
-          top_elem = document.getElementById(first).parentElement.parentElement.parentElement
-          top_elem.style.backgroundColor = "#e6e7e8"
-        }
-        
-      }
-    }
 });
 
 function lightUpCourses() {
@@ -358,30 +321,46 @@ function lightUpCourses() {
     for (var j = 0; j < course_array.length; j++) {
       course_id = course_array[j]
       square = document.getElementById(course_id)
+
       if (square !== null) {
         bg_color = square.style.backgroundColor
-        if (bg_color === "") {
+        if (bg_color === "" || bg_color == "white") {
           all_done = false
-        }
-        else {
-          console.log(bg_color)  
         }
       }
     }
 
-    console.log("lightup" + all_done)
     if (all_done) {
       first = course_array[0]
-      console.log(first)
       top_elem = document.getElementById(first).parentElement.parentElement.parentElement
-      top_elem.style.backgroundColor = "green"
+      top_elem.style.backgroundColor = "#f0c674"
     }
     else {
       first = course_array[0]
-      console.log(first)
       top_elem = document.getElementById(first).parentElement.parentElement.parentElement
       top_elem.style.backgroundColor = "#e6e7e8"
     }
+    
+  }
+}
+
+function clearColors() {
+  for (var i=0; i < scroll_courses.length; i++) {
+    course_array = scroll_courses[i]
+    all_done = true
+    for (var j = 0; j < course_array.length; j++) {
+      course_id = course_array[j]
+      square = document.getElementById(course_id)
+
+      if (square !== null) {
+        square.style.backgroundColor = "white"
+        square.style.color = "#e6e7e8"
+      }
+    }
+
+    first = course_array[0]
+    top_elem = document.getElementById(first).parentElement.parentElement.parentElement
+    top_elem.style.backgroundColor = "#e6e7e8"
     
   }
 }
@@ -543,6 +522,7 @@ function p_start(removal) {
 
     p_force.start();
 }
+
 function p_start(removal) {
     /* Update node */
     p_node = p_node.data(p_data);
@@ -583,9 +563,7 @@ function p_start(removal) {
                 square.style.backgroundColor = "white"
                 square.style.color = "#e6e7e8";
 
-                /*lightUpCourses()*/
-                update_plate_totals();
-
+                lightUpCourses()
                 p_start(true);
 
             });
@@ -606,6 +584,7 @@ function p_start(removal) {
 
     p_force.start();
 }
+
 
 function m_start(removal) {
     /* Update node */
@@ -662,7 +641,6 @@ d3.select("#clear_plate").on("click", function() {
     p_data.splice(0, p_data.length)
 
     p_start(true);
+
+    clearColors()
 });
-
-
-
