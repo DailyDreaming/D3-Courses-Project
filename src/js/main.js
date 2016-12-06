@@ -35,6 +35,13 @@ var defaults = [
     "CMPS 130"
 ];
 
+intro_courses = ["cmps_12_a", "cmps_5", "cmps_11", "cmps_13_l", "cmps_12_b", "cmps_12_h"]
+pysical_science_courses = ["phys_5_a", "phys_5_b", "phys_5_c", "chem_1_a", "chem_1_b", "chem_1_c"]
+math_courses = ["math_19_a", "math_19_b", "math_23_a", "ams_10", "math_21"]
+cmpe_courses = ["cmpe_16", "cmpe_12_l", "cmpe_110"]
+cmps_courses = ["cmps_101", "cmps_104_a", "cmps_111", "cmps_102", "cmps_112", "cmps_130"]
+electives = ["elective_1","elective_2", "elective_3", "elective_4"]
+
 /* Create categories */
 var categories = [
     {
@@ -120,6 +127,9 @@ d3.json("src/json/classes.json", function(error, m_data) {
 
     /* Iterate over data */
     m_data.forEach(function(d) {
+        console.log(JSON.stringify(d))
+        console.log(d.course_id)
+        d.course_id = d.course_id
         /* Get default food occurrence count */
         var count = defaults.reduce(function(n, f) {
             return n + (f === d.course ? 1 : 0);
@@ -149,6 +159,7 @@ d3.json("src/json/classes.json", function(error, m_data) {
                 "prereq": d.prereq,
                 "info": d.info,
                 "color": d.color,
+                "course_id": d.course_id,
                 "radius": p_radius,
                 "cx": p_width / 2,
                 "cy": p_height / 2
@@ -218,11 +229,18 @@ d3.json("src/json/classes.json", function(error, m_data) {
                 "prereq": d.prereq,
                 "info": d.info,
                 "color": d.color,
+                "course_id": d.course_id,
                 "radius": p_radius,
                 "cx": p_width / 2,
                 "cy": p_height / 2
             });
 
+            /* On this click, the class is moved onto the plate */
+            console.log ("viktor")
+            course_id = d.course_id
+            square = document.getElementById(course_id)
+            square.style.backgroundColor = d.color
+            square.style.color = "black";
             p_start(false);
 
             update_plate_totals();
@@ -409,6 +427,7 @@ function p_collide(alpha) {
  * https://bl.ocks.org/mbostock/1095795
  */
 function p_start(removal) {
+    console.log("calling p start")
     /* Update node */
     p_node = p_node.data(p_data);
 
@@ -440,6 +459,15 @@ function p_start(removal) {
 
                 p_start(true);
 
+                /*console.log("course_id" + d.course_id);*/
+                /* On this click, the class is moved off the plate */
+                console.log("jankov");
+                console.log (JSON.stringify(d)) 
+                course_id = d.course_id
+                console.log(course_id);
+                square = document.getElementById(course_id)
+                square.style.backgroundColor = "white"
+                square.style.color = "#e6e7e8";
                 update_plate_totals();
             });
 
