@@ -24,8 +24,15 @@ var bmr = 0,
 
 /* Initialize default plate foods */
 var defaults = [
-    "AMS 131",
-    "CMPE 107"
+    "CMPE 16",
+    "CMPE 12/L",
+    "CMPE 110",
+    "CMPE 104A",
+    "CMPS 101",
+    "CMPS 112",
+    "CMPS 111",
+    "CMPS 102",
+    "CMPS 130"
 ];
 
 /* Create categories */
@@ -170,9 +177,10 @@ d3.json("src/json/classes.json", function(error, m_data) {
         .html(function(d) {
         var data = "<strong><em>" + d.course + "</em></strong>";
 
-        data += "<div class='clearfix'><strong>Units: </strong><em>"       + d.title       + "</em></div>";
-        data += "<div class='clearfix'><strong>Prerequisites: </strong><em>"   + d.prereq   + "</em></div>";
-        data += "<div class='clearfix'><strong>Description: </strong><em>"        + d.info        + "</em></div>";
+        data += "<div class='clearfix'><strong>Course Title: </strong><em>"  + d.title  + "</em></div>";
+        data += "<div class='clearfix'><strong>Units: </strong><em>"         + d.units  + "</em></div>";
+        data += "<div class='clearfix'><strong>Prerequisites: </strong><em>" + d.prereq + "</em></div>";
+        data += "<div class='clearfix'><strong>Description: </strong><em>"   + d.info   + "</em></div>";
 
             return data;
         });
@@ -310,7 +318,8 @@ var p_tip = d3.tip()
     .html(function(d) {
         var data = "<strong><em>" + d.course + "</em></strong>";
 
-        data += "<div class='clearfix'><strong>Units: </strong><em>"       + d.title       + "</em></div>";
+        data += "<div class='clearfix'><strong>Course Title: </strong><em>"       + d.title       + "</em></div>";
+        data += "<div class='clearfix'><strong>Units: </strong><em>"       + d.units       + "</em></div>";
         data += "<div class='clearfix'><strong>Prerequisites: </strong><em>"   + d.prereq   + "</em></div>";
         data += "<div class='clearfix'><strong>Description: </strong><em>"        + d.info        + "</em></div>";
 

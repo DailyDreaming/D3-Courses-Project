@@ -3,379 +3,426 @@
     "course": "CMPS 101",
     "type": "cmps",
     "img": "101",
-    "title": "Abstract Data Types",
-    "info": "",
-    "prereq": ""
+    "title": "  Abstract Data Types",
+    "prereq": "",
+    "units": 5,
+    "info": ""
   },
     {
     "course": "CMPS 130",
     "type": "cmps",
     "img": "130",
-    "title": "Computational Methods",
-    "info": "",
-    "prereq": ""
+    "title": "  Computational Methods",
+    "prereq": "",
+    "units": 5,
+    "info": ""
   },
     {
     "course": "CMPS 112",
     "type": "cmps",
     "img": "112",
-    "title": "Comparative Prog. Langs.",
-    "info": "",
-    "prereq": ""
+    "title": "  Comparative Prog. Langs.",
+    "prereq": "",
+    "units": 5,
+    "info": ""
   },
   {
     "course": "CMPS 12A/L",
     "type": "cmps",
     "img": "12A",
-    "title": "Intro to Prog.(Accelerated)",
-    "info": "",
-    "prereq": ""
+    "title": "  Intro to Prog.(Accelerated)",
+    "prereq": "",
+    "units": 5,
+    "info": ""
   },
     {
     "course": "CMPS 104A",
     "type": "cmps",
     "img": "104a",
-    "title": "Compiler Design 1",
-    "info": "",
-    "prereq": ""
+    "title": "  Compiler Design 1",
+    "prereq": "",
+    "units": 5,
+    "info": ""
   },
   {
     "course": "CMPS 12B/M",
     "type": "cmps",
     "img": "12bm",
-    "title": "Data Structures",
-    "info": "",
-    "prereq": ""
+    "title": "  Data Structures",
+    "prereq": "",
+    "units": 5,
+    "info": ""
   },
     {
     "course": "CMPS 111",
     "type": "cmps",
     "img": "111",
-    "title": "Operating Systems",
-    "info": "",
-    "prereq": ""
+    "title": "  Operating Systems",
+    "prereq": "",
+    "units": 5,
+    "info": ""
   },
     {
     "course": "CMPS 102",
     "type": "cmps",
     "img": "102",
-    "title": "Anaylsis of Algorithms",
-    "info": "",
-    "prereq": ""
+    "title": "  Anaylsis of Algorithms",
+    "prereq": "",
+    "units": 5,
+    "info": ""
    
   },
   {
     "course": "CMPE 13/L",
     "type": "cmpe",
     "img": "13l",
-    "title": "Computer Sys. & C Prog.",
-    "info": "",
-    "prereq": ""
+    "title": "  Computer Sys. & C Prog.",
+    "prereq": "",
+    "units": 5,
+    "info": ""
   },
   {
     "course": "CMPS 13H/L",
     "type": "cmps",
     "img": "13hl",
-    "title": "Intro to Prog. & Data Struc.",
-    "info": "",
-    "prereq": ""
+    "title": "  Intro to Prog. & Data Struc.",
+    "prereq": "",
+    "units": 5,
+    "info": ""
   },
     {
     "course": "CMPS 5J",
     "type": "cmps",
     "img": "5j",
-    "title": "",
-    "info": "",
-    "prereq": ""
+    "title": "  ",
+    "prereq": "",
+    "units": 5,
+    "info": ""
   },
     {
     "course": "CMPS 11",
     "type": "cmps",
     "img": "11",
-    "title": "",
-    "info": "",
-    "prereq": ""
+    "title": "  ",
+    "prereq": "",
+    "units": 5,
+    "info": ""
   },
      {
     "course": "CMPS 115",
     "type": "cmps",
     "img": "115",
-    "title": "Intro Software Eng",
-    "info": "",
-    "prereq": ""
+    "title": "  Intro Software Eng",
+    "prereq": "",
+    "units": 5,
+    "info": ""
   },
      {
     "course": "CMPS 132/W",
     "type": "cmps",
     "img": "132w",
-    "title": "Computability and Computational Complexity",
-    "info": "",
-    "prereq": ""
+    "title": "  Computability and Computational Complexity",
+    "prereq": "",
+    "units": 5,
+    "info": ""
   },
     {
     "course": "CMPS 180/W",
     "type": "cmps",
     "img": "180w",
-    "title": "Database Systems",
-    "info": "concepts, approaches, tools, and methodology of database design",
-    "prereq": ""
+    "title": "  Database Systems",
+    "prereq": "",
+    "units": 5,
+    "info": "concepts, approaches, tools, and methodology of database design"
   },
     {
     "course": "CMPS 185",
     "type": "cmps",
     "img": "185",
-    "title": "Techincal Writing",
-    "info": "Writing and communication by computer science professionals to a technical audience",
-    "prereq": ""
+    "title": "  Techincal Writing",
+    "prereq": "",
+    "units": 5,
+    "info": "Writing and communication by computer science professionals to a technical audience"
   },
     {
     "course": "CMPS 195",
     "type": "cmps",
     "img": "195",
-    "title": "Computability and Computational Complexity",
-    "info": "",
-    "prereq": ""
+    "title": "  Computability and Computational Complexity",
+    "prereq": "",
+    "units": 5,
+    "info": ""
   },
     {
     "course": "CMPS 161/L",
     "type": "cmps",
     "img": "161l",
-    "title": "Intro. Data Visualization",
-    "info": "",
-    "prereq": ""
+    "title": "  Intro. Data Visualization",
+    "prereq": "",
+    "units": 5,
+    "info": ""
   },
     {
     "course": "CMPS 181",
     "type": "cmps",
     "img": "181",
-    "title": "Database System II",
-    "info": "",
-    "prereq": ""
+    "title": "  Database Systems II",
+    "prereq": "",
+    "units": 5,
+    "info": ""
   },
     {
     "course": "CMPS 104B",
     "type": "cmps",
     "img": "104b",
-    "title": "Fundamentals of Compiler Design II",
-    "info": "",
-    "prereq": ""
+    "title": "  Fundamentals of Compiler Design II",
+    "prereq": "",
+    "units": 5,
+    "info": ""
   },
     {
     "course": "CMPS 117",
     "type": "cmps",
     "img": "117",
-    "title": "Software Design Project III",
-    "info": "",
-    "prereq": ""
+    "title": "  Software Design Project III",
+    "prereq": "",
+    "units": 5,
+    "info": ""
   },
   {
     "course": "PHYS 5A/L",
     "type": "physics",
     "img": "5al",
-    "title": "Kinematics",
-    "info": "",
-    "prereq": ""
+    "title": "  Kinematics",
+    "prereq": "",
+    "units": 5,
+    "info": ""
   },
     {
     "course": "PHYS 6A/L",
     "type": "physics",
     "img": "6al",
-    "title": "Kinematics",
-    "info": "",
-    "prereq": ""
+    "title": "  Kinematics",
+    "prereq": "",
+    "units": 5,
+    "info": ""
   },
   {
     "course": "PHYS 5B/M",
     "type": "physics",
     "img": "5bm",
-    "title": "Waves",
-    "info": "",
-    "prereq": ""
+    "title": "  Waves",
+    "prereq": "",
+    "units": 5,
+    "info": ""
   },
     {
     "course": "PHYS 6B/M",
     "type": "physics",
     "img": "5bm",
-    "title": "Waves",
-    "info": "",
-    "prereq": ""
+    "title": "  Waves",
+    "prereq": "",
+    "units": 5,
+    "info": ""
   },
     {
     "course": "PHYS 5C/N",
     "type": "physics",
     "img": "5cn",
-    "title": "Electricity & magnitism",
-    "info": "",
-    "prereq": ""
+    "title": "  Electricity & Magnetism",
+    "prereq": "",
+    "units": 5,
+    "info": ""
   },
     {
     "course": "PHYS 6C/N",
     "type": "physics",
     "img": "6cn",
-    "title": "Electricity & magnitism",
-    "info": "",
-    "prereq": ""
+    "title": "  Electricity & Magnetism",
+    "prereq": "",
+    "units": 5,
+    "info": ""
   },
   {
-    "course": "Chem 1A",
+    "course": "CHEM 1A",
     "type": "chemistry",
     "img": "1a",
-    "title": "Stoicheometry",
-    "info": "",
-    "prereq": ""
+    "title": "  Stoichiometry",
+    "prereq": "",
+    "units": 5,
+    "info": ""
   },
   {
-    "course": "Chem 1B/M",
+    "course": "CHEM 1B/M",
     "type": "chemistry",
     "img": "1bm",
-    "title": "Intro to Quantum",
-    "info": "",
-    "prereq": ""
+    "title": "  Intro to Quantum Mechanics",
+    "prereq": "",
+    "units": 5,
+    "info": ""
   },
     {
-    "course": "Chem 1C/N",
+    "course": "CHEM 1C/N",
     "type": "chemistry",
     "img": "1cn",
-    "title": "Intro to Thermodyn.",
-    "info": "",
-    "prereq": ""
+    "title": "  Intro to Thermodynamics",
+    "prereq": "",
+    "units": 5,
+    "info": ""
   },
     
      {
     "course": "CMPE 16",
     "type": "cmpe",
     "img": "16",
-    "title": "Applied Discrete Math",
-    "info": "",
-    "prereq": ""
+    "title": "  Applied Discrete Math",
+    "prereq": "",
+    "units": 5,
+    "info": ""
   },
     {
     "course": "CMPE 107",
     "type": "cmpe",
     "img": "107",
-    "title": "Prob and Stat.",
-    "info": "",
-    "prereq": ""
+    "title": "  Prob and Statistics",
+    "prereq": "",
+    "units": 5,
+    "info": ""
   },
     {
     "course": "CMPE 110",
     "type": "cmpe",
     "img": "110",
-    "title": "Computer Architecture",
-    "info": "",
-    "prereq": "12/L"
+    "title": "  Computer Architecture",
+    "prereq": "CMPE 12/L",
+    "units": 5,
+    "info": ""
   },
     {
     "course": "CMPE 12/L",
     "type": "cmpe",
     "img": "12l",
-    "title": "Comp. Sys. and Assembly Lang.",
-    "info": "",
-    "prereq": ""
+    "title": "  Comp. Sys. and Assembly Lang.",
+    "prereq": "",
+    "units": 5,
+    "info": ""
   },
     
   {
     "course": "AMS 131",
     "type": "math",
     "img": "131",
-    "title": "Prob. and Stat.",
-    "info": "",
-    "prereq": ""
+    "title": "  Prob. and Stat.",
+    "prereq": "",
+    "units": 5,
+    "info": ""
   },
   {
     "course": "AMS 10",
     "type": "math",
     "img": "10",
-    "title": "Intro to Prob. and Stat.",
-    "info": "",
-    "prereq": ""
+    "title": "  Intro to Prob. and Stat.",
+    "prereq": "",
+    "units": 5,
+    "info": ""
   },
      {
     "course": "MATH 148",
     "type": "math",
     "img": "148",
-    "title": "Numerical Analysis",
-    "info": "",
-    "prereq": ""
+    "title": "  Numerical Analysis",
+    "prereq": "",
+    "units": 5,
+    "info": ""
   },
      {
     "course": "MATH 126",
     "type": "math",
     "img": "126",
-    "title": "Math. Control Theory",
-    "info": "",
-    "prereq": ""
+    "title": "  Math. Control Theory",
+    "prereq": "",
+    "units": 5,
+    "info": ""
   },
      {
     "course": "MATH 117",
     "type": "math",
     "img": "117",
-    "title": "Advanced Linear Algb.",
-    "info": "",
-    "prereq": ""
+    "title": "  Advanced Linear Algb.",
+    "prereq": "",
+    "units": 5,
+    "info": ""
   },
      {
     "course": "MATH 115",
     "type": "math",
     "img": "115",
-    "title": "Graph Theory",
-    "info": "",
-    "prereq": ""
+    "title": "  Graph Theory",
+    "prereq": "",
+    "units": 5,
+    "info": ""
   },
      {
     "course": "MATH 147",
     "type": "math",
     "img": "147",
-    "title": "Comp. Methods and App.",
-    "info": "",
-    "prereq": ""
+    "title": "  Comp. Methods and App.",
+    "prereq": "",
+    "units": 5,
+    "info": ""
   },
     {
     "course": "MATH 114",
     "type": "math",
     "img": "114",
-    "title": "Intro to Dynamic Sys.",
-    "info": "",
-    "prereq": ""
+    "title": "  Intro to Dynamic Sys.",
+    "prereq": "",
+    "units": 5,
+    "info": ""
   },
     {
     "course": "MATH 23A",
     "type": "math",
     "img": "23a",
-    "title": "Multivariable Calc.",
-    "info": "",
-    "prereq": "19A, 19B, 20A, 20B"
+    "title": "  Multivariable Calc.",
+    "prereq": "19A, 19B, 20A, 20B",
+    "units": 5,
+    "info": ""
   },
     {
     "course": "MATH 20B",
     "type": "math",
     "img": "20b",
-    "title": "Integral Calc.",
-    "info": "",
-    "prereq": ""
+    "title": "  Integral Calc.",
+    "prereq": "",
+    "units": 5,
+    "info": ""
   },
     {
-    "course": "Math 20A",
+    "course": "MATH 20A",
     "type": "math",
     "img": "20a",
-    "title": "Derivative Calc.",
-    "info": "",
-    "prereq": ""
+    "title": "  Derivative Calc.",
+    "prereq": "",
+    "units": 5,
+    "info": ""
   },
     {
-    "course": "Math 19B",
+    "course": "MATH 19B",
     "type": "math",
     "img": "19b",
-    "title": "Integral Calc.",
-    "info": "",
-    "prereq": ""
+    "title": "  Integral Calc.",
+    "prereq": "",
+    "units": 5,
+    "info": ""
   },
   {
-    "course": "Math 19A",
+    "course": "MATH 19A",
     "type": "math",
     "img": "19a",
-    "title": "Derivative Calc.",
-    "info": "",
-    "prereq": ""
+    "title": "  Derivative Calc.",
+    "prereq": "",
+    "units": 5,
+    "info": ""
   }
 ]
