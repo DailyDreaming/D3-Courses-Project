@@ -450,55 +450,6 @@ function p_start(removal) {
 
     p_force.start();
 }
-function p_start(removal) {
-    /* Update node */
-    p_node = p_node.data(p_data);
-
-    /* Remove old circles and images */
-    p_node.selectAll(".p-" + p_count).remove();
-
-    /* Remove old nodes */
-    p_node.exit().remove();
-
-    /* Increment count */
-    p_count++;
-
-    /* Create node */
-    p_node
-        .enter()
-        .append("g");
-
-    /* Create circle */
-    p_circle = p_node
-        .data(p_data)
-        .append("circle")
-            .attr("class", "circle p-" + p_count)
-            .attr("r", function() { return p_radius; })
-            .style("fill", function(d) { return d.color; })
-            .on("mouseover", p_tip.show)
-            .on("mouseleave", p_tip.hide)
-            .on("click", function(d) {
-                p_data.splice(d.index, 1);
-
-                p_start(true);
-            });
-
-    /* Create image */
-    p_img = p_node
-        .data(p_data)
-        .append("image")
-            .attr("class", "image p-" + p_count)
-            .attr("width", "52")
-            .attr("height", "52")
-            .attr("xlink:href", function(d) { return "src/img/" + d.type + "/" + d.img + ".png"; });
-
-    /* Hide tooltip */
-    if (removal) {
-        p_tip.hide();
-    }
-
-    p_force.start();
-}
 
 function m_start(removal) {
     /* Update node */
@@ -556,6 +507,3 @@ d3.select("#clear_plate").on("click", function() {
 
     p_start(true);
 });
-
-
-
