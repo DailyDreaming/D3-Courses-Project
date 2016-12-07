@@ -15,7 +15,7 @@ var format_number = d3.format(",.2f");
 
 /* Initialize default plate foods */
 var defaults = [
-    "CMPE 16",
+    /*"CMPE 16",
     "CMPE 12/L",
     "CMPE 110",
     "CMPE 104A",
@@ -23,7 +23,7 @@ var defaults = [
     "CMPS 112",
     "CMPS 111",
     "CMPS 102",
-    "CMPS 130"
+    "CMPS 130"*/
 ];
 
 scroll_courses = 
@@ -171,7 +171,7 @@ d3.json("src/json/classes.json", function(error, m_data) {
         data += "<div class='clearfix'><strong>Course Title: </strong><em>"  + d.title  + "</em></div>";
         data += "<div class='clearfix'><strong>Units: </strong><em>"         + d.units  + "</em></div>";
         data += "<div class='clearfix'><strong>Prerequisites: </strong><em>" + d.prereq + "</em></div>";
-        data += "<div class='clearfix'><strong>Description: </strong><em>"   + d.info   + "</em></div>";
+        //data += "<div class='clearfix'><strong>Description: </strong><em>"   + d.info   + "</em></div>";
 
             return data;
         });
@@ -215,15 +215,16 @@ d3.json("src/json/classes.json", function(error, m_data) {
                 "cy": p_height / 2
             });
 
-            /* On this click, the class is moved onto the plate */
-            console.log ("viktor")
-            course_id = d.id
-            square = document.getElementById(course_id)
-            square.style.backgroundColor = d.color
-            square.style.color = "black";
             p_start(false);
 
-            lightUpCourses()
+            /* On this click, the class is moved onto the plate */
+            console.log ("viktor");
+            course_id = d.id;
+            square = document.getElementById(course_id);
+            square.style.backgroundColor = d.color;
+            square.style.color = "black";
+
+            lightUpCourses();
             //m_start(false);
 
         });
@@ -275,7 +276,7 @@ function m_start(removal) {
             .on("click", function(d) {
                 m_data.splice(d.index, 1);
 
-                m_start(true);
+                //m_start(true);
             });
 
     /* Create image */
@@ -419,7 +420,7 @@ var p_tip = d3.tip()
         data += "<div class='clearfix'><strong>Course Title: </strong><em>"  + d.title  + "</em></div>";
         data += "<div class='clearfix'><strong>Units: </strong><em>"         + d.units  + "</em></div>";
         data += "<div class='clearfix'><strong>Prerequisites: </strong><em>" + d.prereq + "</em></div>";
-        data += "<div class='clearfix'><strong>Description: </strong><em>"   + d.info   + "</em></div>";
+        //data += "<div class='clearfix'><strong>Description: </strong><em>"   + d.info   + "</em></div>";
 
         return data;
     });
@@ -507,7 +508,6 @@ function p_collide(alpha) {
  * https://bl.ocks.org/mbostock/1095795
  */
 function p_start(removal) {
-    console.log("calling p start")
     /* Update node */
     p_node = p_node.data(p_data);
 
@@ -536,56 +536,8 @@ function p_start(removal) {
             .on("mouseleave", p_tip.hide)
             .on("click", function(d) {
                 p_data.splice(d.index, 1);
-
                 p_start(true);
-            });
-
-    /* Create image */
-    p_img = p_node
-        .data(p_data)
-        .append("image")
-            .attr("class", "image p-" + p_count)
-            .attr("width", "52")
-            .attr("height", "52")
-            .attr("xlink:href", function(d) { return "src/img/" + d.type + "/" + d.img + ".png"; });
-
-    /* Hide tooltip */
-    if (removal) {
-        p_tip.hide();
-    }
-
-    p_force.start();
-}
-
-function p_start(removal) {
-    /* Update node */
-    p_node = p_node.data(p_data);
-
-    /* Remove old circles and images */
-    p_node.selectAll(".p-" + p_count).remove();
-
-    /* Remove old nodes */
-    p_node.exit().remove();
-
-    /* Increment count */
-    p_count++;
-
-    /* Create node */
-    p_node
-        .enter()
-        .append("g");
-
-    /* Create circle */
-    p_circle = p_node
-        .data(p_data)
-        .append("circle")
-            .attr("class", "circle p-" + p_count)
-            .attr("r", function() { return p_radius; })
-            .style("fill", function(d) { return d.color; })
-            .on("mouseover", p_tip.show)
-            .on("mouseleave", p_tip.hide)
-            .on("click", function(d) {
-                p_data.splice(d.index, 1);
+                //m_start(true);
 
                 /*console.log("course_id" + d.course_id);*/
                 /* On this click, the class is moved off the plate */
@@ -598,9 +550,6 @@ function p_start(removal) {
                 square.style.color = "#e6e7e8";
 
                 lightUpCourses()
-                p_start(true);
-
-                //m_start(true);
             });
 
     /* Create image */

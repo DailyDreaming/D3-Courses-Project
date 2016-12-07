@@ -33,7 +33,7 @@
     "course": "CMPS 12A/L",
     "id": "cmps_12_a",
     "type": "cmps",
-    "img": "12A",
+    "img": "12al",
     "title": "Intro to Programming(Aceelerated)/ Lab",
     "info": "Topics include: functions; conditionals and loops; classes; event-driven programming and graphic user interfaces (GUIs); recursion; and arrays.",
     "units": "7",
@@ -172,7 +172,7 @@
     {
     "course": "CMPS 161/L",
     "id": "cmps_161_l",
-    "type": "cmps",
+    "type": "capstone",
     "img": "161l",
     "title": "Intro. Data Visualization & Lab",
     "info": "Concepts and methods for data analysis, information and scientific visualization, and effective communication of technical data",
@@ -182,7 +182,7 @@
     {
     "course": "CMPS 181",
     "id": "cmps_181",
-    "type": "cmps",
+    "type": "capstone",
     "img": "181",
     "title": "Database System II",
     "info": "Introduction to the architecture and implementation of database systems. Topics covered include data storage, tree and hash indexes, storage management, query evaluation and optimization, transaction management, concurrency control, recovery, and XML data management.",
@@ -192,7 +192,7 @@
     {
     "course": "CMPS 104B",
     "id": "cmps_104_b",
-    "type": "cmps",
+    "type": "capstone",
     "img": "104b",
     "title": "Fundamentals of Compiler Design II",
     "info": "Topics include compiler structure emphasizing the back end, type systems, run-time environments; static, stack and heap storage management, garbage collection; addressing, register allocation, code generation; basic blocks and data-flow analysis; local and global code optimization; interpretation versus compilation.",
@@ -202,7 +202,7 @@
     {
     "course": "CMPS 117",
     "id": "cmps_117",
-    "type": "cmps",
+    "type": "capstone",
     "img": "117",
     "title": "Software Design Project II",
     "info": "Continuation of course 116. Students work in teams to develop, test, document, and deploy a substantial software project. Teams give a formal presentation and demonstration of each project.",
