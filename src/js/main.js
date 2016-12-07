@@ -28,7 +28,7 @@ var defaults = [
 
 scroll_courses = 
 intro_courses = ["cmps_12_a", "cmps_5_j", "cmps_11", "cmpe_13_l", "cmps_12_b", "cmps_13_h"]
-phys_courses = ["phys_5_a", "phys_5_b", "phys_5_c", "chem_1_a", "chem_1_b", "chem_1_c"]
+phys_courses = ["phys_5_a", "phys_5_b", "phys_5_c", "phys_6_a", "phys_6_b", "phys_6_c", "chem_1_a", "chem_1_b", "chem_1_c"]
 math_courses = ["math_19_a", "math_19_b", "math_23_a", "ams_10", "math_21"]
 cmpe_courses = ["cmpe_16", "cmpe_12_l", "cmpe_110"]
 cmps_courses = ["cmps_101", "cmps_104_a", "cmps_111", "cmps_102", "cmps_112", "cmps_130"]

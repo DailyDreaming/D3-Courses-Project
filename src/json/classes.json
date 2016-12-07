@@ -221,7 +221,7 @@
   },
     {
     "course": "PHYS 6A/L",
-    "id": "phys_6_a",
+    "id": "phys_5_a",
     "type": "physics",
     "img": "6al",
     "title": "Kinematics",
@@ -241,9 +241,9 @@
   },
     {
     "course": "PHYS 6B/M",
-    "id": "phys_6_b",
+    "id": "phys_5_b",
     "type": "physics",
-    "img": "5bm",
+    "img": "6bm",
     "title": "Intro.Physics II",
     "info": "Geometric optics; statics and dynamics of fluids; introduction to thermodynamics, including temperature, heat, thermal conductivity, and molecular motion; wave motion in matter, including sound waves.",
     "units": "7",
@@ -261,7 +261,7 @@
   },
     {
     "course": "PHYS 6C/N",
-    "id": "phys_6_c",
+    "id": "phys_5_c",
     "type": "physics",
     "img": "6cn",
     "title": "Intro. Physics III",
